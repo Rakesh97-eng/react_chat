@@ -1,26 +1,45 @@
-const Login = ()=>{
-    return(
-        <>
-        <span className="title">Register</span>
-        <div className="formContainer">
-            <div className="formwrapper">
-                <span className="logo">Chat</span>
-                <span className="title">Register</span>
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
-                <form>
-                    <input type="text" placeholder="display name"/>
-                    <input type="email" placeholder="email"/>
-                    <input type="password" placeholder="password"/>
-                    <input style={{"display":"none"}} id="file" type="file"/>
-                    <label htmlFor="file">Add file</label>
-                    <button>sign Up</button>
-                </form>
+const Login = () => {
+    let navigate = useNavigate();
+  const handlelogin = (e)=>{
+    e.preventDefault();
+    const email  = e.target[0].value;
+    const password = e.target[1].value
+    try{
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          navigate('/')
+        })
+    }
+    catch(error){
+      console.log(error);
+    };
+  }
+  
+  
 
-            </div>
+  return (
+    <>
+      <span className="title">Login</span>
+      <div className="formContainer">
+        <div className="formwrapper">
+          <span className="logo">Chat</span>
+          <span className="title">Register</span>
 
+          <form onSubmit={handlelogin}>
+            <input type="email" placeholder="email" />
+            <input type="password" placeholder="password" />
+            <button>sign in</button>
+          </form>
         </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
 export default Login;

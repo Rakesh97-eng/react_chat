@@ -13,8 +13,7 @@ const Navbar = ()=>{
     return(
         <>
         <div className="navbar">
-             <p className="logo">My chat</p>
-             
+             <p className="logo">My chat</p> 
              <span className="user">{currentuser?.displayName}
               <img src={currentuser?.photoURL}/>
              </span>

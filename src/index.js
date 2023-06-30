@@ -4,12 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserContextprovider } from './context/userContext';
+import { ChatcontextProvider } from './context/chatContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserContextprovider>
+      <ChatcontextProvider>
+
     <App />
+      </ChatcontextProvider>
     </UserContextprovider>
  
   </React.StrictMode>

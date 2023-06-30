@@ -19,18 +19,7 @@ const Register = () => {
         email,
         password
       );
-      console.log(register.user);
-    //   await updateProfile(register.user, {
-    //     displayName: userName,
-    //     // photoURL: downloadURL,
-    //   });
-    //   await setDoc(doc(db, "users",register.user.uid ), {
-    //       uid:register.user.uid,
-    //       displayName:userName,
-    //       email:register.user.email,
-    //     //   photoURL:downloadURL
-    //      });
-   
+
       const storageRef = ref(storage, userName);
 
       const uploadTask = uploadBytesResumable(storageRef, file);
