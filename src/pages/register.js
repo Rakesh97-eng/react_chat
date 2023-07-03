@@ -15,7 +15,7 @@ const Register = () => {
     const file = e?.target[3]?.files[0];
     try {
       const register = await createUserWithEmailAndPassword(
-        auth,--
+        auth,
         email,
         password
       );
