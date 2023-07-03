@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
     let navigate = useNavigate();
@@ -12,7 +12,6 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
           navigate('/')
         })
     }
@@ -25,18 +24,19 @@ const Login = () => {
 
   return (
     <>
-      <span className="title">Login</span>
+      <span className="title"></span>
       <div className="formContainer">
-        <div className="formwrapper">
+        <div className="formWrapper">
           <span className="logo">Chat</span>
           <span className="title">Register</span>
-
           <form onSubmit={handlelogin}>
             <input type="email" placeholder="email" />
             <input type="password" placeholder="password" />
             <button>sign in</button>
           </form>
+         <Link style={{textDecoration:"none",color:" #8da4f1"}} to="/register">Click here to Register</Link>
         </div>
+       
       </div>
     </>
   );

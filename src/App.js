@@ -8,7 +8,6 @@ import Login from "./pages/login";
 
 function App() {
   const {currentuser} = useContext(UserContext);
-  console.log(currentuser,"app");
 
   const ProtectedRoute = ({children})=>{
    if(!currentuser){

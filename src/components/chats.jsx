@@ -11,7 +11,6 @@ const Chats = ()=>{
     useEffect(()=>{
         const getchats = ()=>{
             let Chats = onSnapshot(doc(db,"userChats",currentuser.uid),(doc)=>{
-                console.log("doccc",doc);
                 setChats(doc.data())
              });
      
@@ -25,20 +24,19 @@ const Chats = ()=>{
     },[currentuser.uid])
 
     const handleSelect = (user)=>{
-        console.log(user);
         dispatch({type:"CHANGE_CHAT",payload:user})
     }
-
   
     return(
         <>
         <div className="chats">
-        {Object.entries(chats).map(chat=>
+        {Object.entries(chats)?.map(chat=>
             
               <div key={chat[0]} className="userChat" onClick={()=>handleSelect(chat[1].userinfo)}>
                 <img src={chat[1].userinfo.photoURL}></img>
                 <div className="userChatInfo">
-                {chat[1].userinfo.displayName}
+                <span>{chat[1].userinfo?.displayName}</span>
+                <p>{chat[1].lastmessage?.text}</p>
                 </div>
              
               </div>

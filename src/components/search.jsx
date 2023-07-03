@@ -19,7 +19,6 @@ const Search = ()=>{
 
 
     const handleSearch = async()=>{
-        console.log(username);
         const data = query(
             collection(db,"users"),where("displayName", "==", username)
             );
@@ -34,12 +33,10 @@ const Search = ()=>{
             }
         }
     const handleselect = async()=>{
-        console.log("userrrr");
-            let combinedId = user.uid + currentuser.uid;
+            let combinedId = user.uid>currentuser.uid?user.uid + currentuser.uid:currentuser.uid+user.uid;
             let docRef =  doc(db, 'userChats', currentuser.uid);
             let docRefc = doc(db,'userChats',user.uid);
            let combinedres =  await getDoc(doc(db,"chats",combinedId));
-           console.log(combinedres);
            if(!combinedres.uid ){
             let userchat = await setDoc(doc(db,"chats",combinedId),{message:[]})
             await updateDoc(docRef, {

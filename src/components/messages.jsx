@@ -8,17 +8,20 @@ const Messages = ()=>{
     const [messages,setMessages] = useState();
     const {data} = useContext(ChatContext);
 
-  console.log(data);
     useEffect(()=>{
-        let unsub = onSnapshot(doc(db,"chats",data.chatid),(doc)=>{
-            console.log("doccc",doc);
-            doc.exists() &&  setMessages(doc.data().messages)
-         });
+      if(data.chatid){
+
+          let unsub = onSnapshot(doc(db,"chats",data.chatid),(doc)=>{
+              doc.exists() &&  setMessages(doc.data().message)
+            });
+            
+            return ()=>{
+                unsub();
+            }
+        }
+        
  
-         return ()=>{
-             unsub();
-         }
-    },[])
+    },[data.chatid])
 
     return(
         <>
