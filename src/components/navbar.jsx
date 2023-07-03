@@ -13,10 +13,12 @@ const Navbar = ()=>{
         <>
         <div className="navbar">
              <p className="logo">My chat</p> 
+             
              <span className="user">{currentuser?.displayName}
               <img src={currentuser?.photoURL}/>
              </span>
              <button onClick={()=>signout()}>Logout</button>
+            
         </div>
         </>
     )

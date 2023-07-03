@@ -1,6 +1,6 @@
 @mixin mobile {
     @media screen and (max-width: 480px) {
-      @content;
+     @content;
     }
   }
   @mixin tablet {
@@ -13,7 +13,7 @@
       @content;
     }
   }
-  
+
   .formContainer {
     background-color: #a7bcff;
     height: 100vh;
@@ -55,6 +55,7 @@
           &::placeholder {
             color: rgb(126, 50, 50);
           }
+          
         }
   
         button {
@@ -109,7 +110,11 @@
         flex: 1;
         background-color: #3e3c61;
         position: relative;
-  
+        &.mobileside{
+          @include mobile(){
+            display: none;
+          }
+        }
         .navbar {
           display: flex;
           align-items: center;
@@ -123,6 +128,12 @@
             font-weight: bold;
             @include tablet {
               display: none;
+            }
+          }
+
+          .goback{
+            @include mobile(){
+              display: block;
             }
           }
   
@@ -210,9 +221,27 @@
           }
         }
       }
+     .nochat{
+    
+           background-color: #5d5b8d;
+            display: flex;
+            align-items: center;
+            justify-Content: center;
+            width: 70%;
+            @include mobile(){
+              display:none
+             }
+     }
       .chat {
         flex: 2;
-  
+       @include mobile(){
+       width: 0px;
+       }
+       .mobilechat{
+        @include mobile(){
+          display: block;
+        }
+       }
         .chatInfo {
           height: 50px;
           background-color: #5d5b8d;
@@ -238,7 +267,7 @@
           padding: 10px;
           height: calc(100% - 160px);
           overflow: scroll;
-  
+         
           .message {
             display: flex;
             gap: 20px;

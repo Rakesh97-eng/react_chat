@@ -15,9 +15,9 @@ const Messages = ()=>{
               doc.exists() &&  setMessages(doc.data().message)
             });
             
-            return ()=>{
-                unsub();
-            }
+            return ()=>(
+                unsub()
+            )
         }
         
  
@@ -26,9 +26,19 @@ const Messages = ()=>{
     return(
         <>
         <div className="messages">
-            {messages?.map((message)=>(
+            {messages?messages?.map((message)=>(
                 <Message message={message}/>
-            ))}
+            )): <div
+            style={{
+              backgroundColor: "#5d5b8d",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding:"10px"
+            }}
+          >
+            Updating Conversations...
+          </div>}
           
         </div>
         </>
