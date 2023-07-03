@@ -71,8 +71,9 @@ const Search = ()=>{
                 <input placeholder="search name" onKeyDown={handlekey}
                  value={username}
                  onChange={(e)=>handlchange(e)}/>
+            
+            {user &&<div className="searchData" onClick={handleselect}>{user.displayName}</div>}
             </div>
-            {user &&<div onClick={handleselect}>{user.displayName}</div>}
         </div>
         </>
     )
