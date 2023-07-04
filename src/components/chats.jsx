@@ -30,7 +30,7 @@ const Chats = ()=>{
     return(
         <>
         <div className="chats">
-        {Object.entries(chats)?.map(chat=>
+        {chats? Object.entries(chats)?.map(chat=>
             
               <div key={chat[0]} className="userChat" onClick={()=>handleSelect(chat[1].userinfo)}>
                 <img src={chat[1].userinfo.photoURL}></img>
@@ -40,7 +40,7 @@ const Chats = ()=>{
                 </div>
              
               </div>
-         )}
+         ):<></>}
         </div>
       
        
