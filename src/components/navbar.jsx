@@ -18,6 +18,7 @@ const Navbar = ()=>{
               <img src={currentuser?.photoURL}/>
              </span>
              <button onClick={()=>signout()}>Logout</button>
+             
             
         </div>
         </>

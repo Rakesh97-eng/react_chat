@@ -29,6 +29,7 @@
       flex-direction: column;
       gap: 10px;
       align-items: center;
+      position: relative;
   
       .logo {
         color: #5d5b8d;
@@ -56,6 +57,15 @@
             color: rgb(126, 50, 50);
           }
           
+        }
+
+        .showpassword{
+          font-size: small;
+          color: #d6d6ec;
+          position: absolute;
+          bottom: 110px;
+          right: 65px;
+          cursor: pointer;
         }
   
         button {
@@ -167,6 +177,14 @@
   
           .searchForm {
             padding: 10px;
+            margin: 2%;
+            .searchmobile{
+             
+                
+                float: right;
+                cursor:pointer;
+
+            }
   
             input {
               background-color: transparent;
@@ -182,6 +200,7 @@
               color: lightgray;
               cursor: pointer;
               padding: 10px;
+              margin: 2%;
               background-color:#5d5b8d ;
             }
           }
@@ -323,6 +342,7 @@
             display: none;
           }
         }
+     
   
         .input {
           height: 50px;

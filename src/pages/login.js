@@ -1,9 +1,11 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
     let navigate = useNavigate();
+    const [show,setShow] = useState(false)
   const handlelogin = (e)=>{
     e.preventDefault();
     const email  = e.target[0].value;
@@ -31,7 +33,9 @@ const Login = () => {
           <span className="title">Register</span>
           <form onSubmit={handlelogin}>
             <input type="email" placeholder="email" />
-            <input type="password" placeholder="password" />
+            
+            <input type={show?"text":"password"} placeholder="password" />
+            <span  className="showpassword" onClick={()=>setShow(!show)}>show password</span>
             <button>sign in</button>
           </form>
          <Link style={{textDecoration:"none",color:" #8da4f1"}} to="/register">Click here to Register</Link>

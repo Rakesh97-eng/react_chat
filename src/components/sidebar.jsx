@@ -10,6 +10,7 @@ const Sidebar = ()=>{
         <>
         <div className={`sidebar ${data.availableuser && "mobileside"}`}>
             <Navbar/>
+            {/* <button style={{background:"none",position:"absolute",right:"0px",border:"none",color:"white",cursor:"pointer"}}>Back</button> */}
             <Search/>
             <Chats/>
         </div>
